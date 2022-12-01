@@ -1,11 +1,12 @@
 CREATE DATABASE gym;
 
-USE gym;
-CREATE USER 'webapp'@'*' IDENTIFIED BY 'joshandrachel';
+-- CREATE USER 'webapp'@'%' IDENTIFIED BY 'joshandrachel';
 
-GRANT ALL PRIVILEGES ON gym TO 'webapp'@'*';
+GRANT ALL PRIVILEGES ON gym.* TO 'webapp'@'%';
 
 FLUSH PRIVILEGES;
+
+USE gym;
 
 CREATE TABLE members
 (

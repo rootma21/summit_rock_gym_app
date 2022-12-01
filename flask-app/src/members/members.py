@@ -11,8 +11,8 @@ members = Blueprint('members', __name__)
 @members.route('/members', methods=['GET'])
 def get_members():
     cursor = db.get_db().cursor()
-    cursor.execute('select ID, First_name,\
-        from members')
+
+    cursor.execute('select ID from members')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
