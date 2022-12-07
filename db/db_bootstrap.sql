@@ -90,7 +90,7 @@ CREATE TABLE teams
     Current_capacity INTEGER NOT NULL,
     Meeting_time TIME NOT NULL,
 
-    #The following came from https://stackoverflow.com/questions/11924346/storing-days-in-mysql-database
+    -- The following came from https://stackoverflow.com/questions/11924346/storing-days-in-mysql-database
     Days_of_week TEXT NOT NULL,
 
     Age_group VARCHAR(30) NOT NULL,
@@ -373,14 +373,10 @@ insert into passes (ID, Nonmember_ID, Type, Purchase_Date) values (100, 23, 'Mon
 
 
 -- teams
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (1, 2, 4, '03:39', 'Monday, Wednesday', '8-10', true, 'Intermediate', 4);
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (2, 10, 3, '10:29', 'Monday, Wednesday', '8-10', false, 'Intermediate', 3);
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (3, 3, 5, '8:11', 'Monday, Wednesday', '8-10', false, 'Intermediate', 4);
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (4, 10, 8, '9:15', 'Monday, Wednesday', '8-10', false, 'Intermediate', 3);
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (5, 4, 7, '5:13', 'Monday, Wednesday', '8-10', true, 'Intermediate', 2);
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (6, 5, 5, '12:36', 'Monday, Wednesday', '8-10', true, 'Intermediate', 2);
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (7, 3, 10, '1:24', 'Monday, Wednesday', '8-10', false, 'Intermediate', 5);
-insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (8, 8, 4, '9:36', 'Monday, Wednesday', '8-10', true, 'Intermediate', 1);
+insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (1, 20, 15, '03:39', 'Monday, Wednesday', '17+', true, 'Adult Beginner', 4);
+insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (2, 20, 6, '10:29', 'Tuesday, Friday', '17+', true, 'Adult Intermediate', 3);
+insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (3, 20, 17, '8:11', 'Tuesday, Thursday', '5-17', true, 'Youth Beginner', 4);
+insert into teams (ID, Max_capacity, Current_capacity, Meeting_time, Days_of_week, Age_Group, Open_closed, Experience_level, Coach_ID) values (4, 20, 9, '9:15', 'Saturday, Thursday', '5-17', true, 'Youth Advanced', 3);
 
 -- shifts
 insert into shifts (Employee_ID, Shift_ID, Start, End) values (4, 1, '2022-01-04 22:01:51', '2022-07-28 09:04:42');
