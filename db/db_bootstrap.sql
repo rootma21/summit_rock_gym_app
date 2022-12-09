@@ -14,19 +14,19 @@ CREATE TABLE members
     Minor_status BOOLEAN NOT NULL,
     First_name VARCHAR(40) NOT NULL,
     Last_name VARCHAR(40) NOT NULL,
-    Middle_initial CHAR(1),
+    Middle_initial CHAR(40),
     Date_of_birth DATE NOT NULL,
-    Street_address VARCHAR(64) NOT NULL,
-    Zip CHAR(10) NOT NULL,
+    Street_address VARCHAR(100) NOT NULL,
+    Zip CHAR(40) NOT NULL,
     State CHAR(2) NOT NULL,
-    City VARCHAR(30) NOT NULL,
+    City VARCHAR(60) NOT NULL,
     Team_ID INTEGER,
     Membership_type CHAR(1) NOT NULL,
     Frozen BOOLEAN NOT NULL,
     Payment_type CHAR(1) NOT NULL,
-    Waiver_ID INTEGER NOT NULL,
+    Waiver_ID INTEGER,
     Email VARCHAR(64) NOT NULL,
-    Phone CHAR(13) NOT NULL,
+    Phone CHAR(25) NOT NULL,
     PRIMARY KEY (ID)
 );
 
@@ -43,8 +43,8 @@ CREATE TABLE nonmembers
     City VARCHAR(30) NOT NULL,
     Email VARCHAR(64) NOT NULL,
     Phone CHAR(13) NOT NULL,
-    Number_of_visits INTEGER,
-    Waiver_ID INTEGER NOT NULL,
+    Number_of_visits INTEGER DEFAULT 1,
+    Waiver_ID INTEGER,
     PRIMARY KEY (ID)
 );
 
