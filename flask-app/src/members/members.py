@@ -139,3 +139,74 @@ def get_experience_levels():
     the_response.mimetype = 'application/json'
 
     return the_response
+
+# create new nonmember when they submit a waiver
+@members.route('/members/new_member', methods=['POST'])
+def submit_waiver():
+
+    # create a cursor
+    cursor = db.get_db().cursor()
+
+    # name
+    fname = request.form['first']
+    lname = request.form['last']
+    mi = request.form['mi']
+
+    # dob
+    dob = request.form['dob']
+
+    # address
+    street = request.form['street']
+    city = request.form['city']
+    state = request.form['state']
+    zip = request.form['zip']
+
+    # email and phone
+    email = request.form['email']
+    phone = request.form['phone']
+
+    minor_status = request.form["minor_status"]
+    membership_type = request.form["membership_type"]
+    frozen = 0
+    payment_type = "D" #We didn't end up using this, so it doesn't matter
+
+    # create query
+    query1_waivers = f"""INSERT INTO waivers (Waiver_type_minor)
+    values (\"{minor_status}\");"""
+    #print(query1_waivers)
+
+    # execute query
+    cursor.execute(query1_waivers)
+
+    # commit to db
+    db.get_db().commit()
+#lol
+    # create query
+    query2_members = f"""insert into members
+                            (First_name,
+                            Middle_initial,
+                            Last_name,
+                            Date_of_birth,
+                            Street_address,
+                            Zip,
+                            State,
+                            City,
+                            Email,
+                            Phone,
+                            Waiver_ID,
+                            Minor_status,
+                            Membership_type,
+                            Frozen,
+                            Payment_type)
+     values (\"{fname}\", \"{mi}\", \"{lname}\", \"{dob}\", \"{street}\", \"{zip}\",
+     \"{state}\", \"{city}\", \"{email}\", \"{phone}\", (select last_insert_id()),
+     \"{minor_status}\", \"{membership_type}\", \"{frozen}\", \"{payment_type}\");"""
+    print(query2_members)
+
+    # execute query
+    cursor.execute(query2_members)
+
+    # commit to db
+    db.get_db().commit()
+
+    return 'Success!'
