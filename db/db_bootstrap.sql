@@ -1,6 +1,6 @@
 CREATE DATABASE gym;
 
--- CREATE USER 'webapp'@'%' IDENTIFIED BY 'joshandrachel';
+CREATE USER 'webapp'@'%' IDENTIFIED BY 'joshandrachel';
 
 GRANT ALL PRIVILEGES ON gym.* TO 'webapp'@'%';
 
@@ -17,7 +17,7 @@ CREATE TABLE members
     Middle_initial CHAR(40),
     Date_of_birth DATE NOT NULL,
     Street_address VARCHAR(100) NOT NULL,
-    Zip CHAR(40) NOT NULL,
+    Zip CHAR(10) NOT NULL,
     State CHAR(2) NOT NULL,
     City VARCHAR(60) NOT NULL,
     Team_ID INTEGER,
@@ -26,7 +26,7 @@ CREATE TABLE members
     Payment_type CHAR(1) NOT NULL,
     Waiver_ID INTEGER,
     Email VARCHAR(64) NOT NULL,
-    Phone CHAR(25) NOT NULL,
+    Phone CHAR(13) NOT NULL,
     Last_check_in DATE,
     PRIMARY KEY (ID)
 );
@@ -264,11 +264,36 @@ insert into members (ID, Minor_status, First_name, Last_name, Middle_initial, Da
 insert into members (ID, Minor_status, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Membership_type, Frozen, Payment_type, Waiver_ID, Email, Phone) values (25, true, 'Helga', 'Ancketill', 'P', '2000-03-12', '655 Leroy Lane', '37914', 'TX', 'Knoxville', 'M', false, 'F', 8, 'hancketillo@boston.com', '865-910-2085');
 
 -- employees
-insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (1, 'Jamie', 'Bonnor', 'F', '1988-08-14', '191 Elmside Drive', '35220', 'NY', 'Birmingham', 'jbonnor0@ucla.edu', '205-977-4305', '2019-04-09', null);
-insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (2, 'Pennie', 'Vallintine', 'M', '1988-08-14', '0 Green Drive', '21684', 'NY', 'Ridgely', 'pvallintine1@skyrock.com', '410-865-1349', '2019-04-09', 1);
-insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (3, 'Catriona', 'Hughland', 'F', '1988-08-14', '81548 Hoffman Crossing', '19610', 'NY', 'Reading', 'chughland2@wsj.com', '610-340-0278', '2019-04-09', 1);
-insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (4, 'Haslett', 'Mabe', 'M', '1988-08-14', '07549 Main Way', '14263', 'NY', 'Buffalo', 'hmabe3@dedecms.com', '716-718-9606', '2019-04-09', 1);
-insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (5, 'Em', 'Challenor', 'M', '1988-08-14', '67 Lighthouse Bay Trail', '77223', 'NY', 'Houston', 'echallenor4@google.ca', '713-705-6566', '2019-04-09', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (1, 'Giacomo', 'Kittman', 'M', '1997-12-23', '9574 Trailsway Alley', '77554', 'TX', 'Galveston', 'gkittman0@e-recht24.de', '281-609-6865', '2020-12-24', null);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (2, 'Welsh', 'Colten', 'M', '1983-03-15', '6 Harbort Crossing', '19810', 'DE', 'Wilmington', 'wcolten1@nyu.edu', '302-937-1731', '2020-01-15', null);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (3, 'Jermain', 'Denacamp', 'M', '1975-02-03', '41821 Express Junction', '85297', 'AZ', 'Gilbert', 'jdenacamp2@goo.gl', '480-373-0186', '2020-02-11', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (4, 'Shelden', 'McGowan', 'M', '2006-09-06', '96079 Cottonwood Crossing', '32405', 'FL', 'Panama City', 'smcgowan3@google.fr', '850-379-3399', '2019-05-07', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (5, 'Shaun', 'Gawke', 'F', '1971-08-11', '0415 Graceland Circle', '33336', 'FL', 'Fort Lauderdale', 'sgawke4@cafepress.com', '754-569-3203', '2021-02-13', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (6, 'Shari', 'Sacks', 'F', '2001-04-06', '0 Melody Park', '84125', 'UT', 'Salt Lake City', 'ssacks5@skype.com', '801-829-0866', '2021-08-17', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (7, 'Tye', 'Lackham', 'M', '2000-11-25', '622 Claremont Circle', '80270', 'CO', 'Denver', 'tlackham6@nature.com', '303-723-0854', '2019-07-24', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (8, 'Roseanne', 'Rikkard', 'F', '1981-12-15', '3174 Kenwood Point', '77505', 'TX', 'Pasadena', 'rrikkard7@dion.ne.jp', '281-899-5670', '2019-02-23', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (9, 'Trueman', 'Bardwell', 'M', '1999-09-19', '3687 Lotheville Lane', '60674', 'IL', 'Chicago', 'tbardwell8@lulu.com', '312-918-0854', '2020-07-17', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (10, 'Vivien', 'Davis', 'F', '1975-05-29', '11699 Mayer Lane', '95128', 'CA', 'San Jose', 'vdavis9@newsvine.com', '408-579-9949', '2019-06-28', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (11, 'Leigh', 'Rowth', 'M', '1976-09-29', '417 Colorado Park', '10203', 'NY', 'New York City', 'lrowtha@sogou.com', '212-742-4147', '2021-07-16', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (12, 'Clarance', 'McCormack', 'M', '1972-02-19', '99478 Daystar Plaza', '63116', 'MO', 'Saint Louis', 'cmccormackb@networksolutions.com', '314-169-5823', '2020-03-18', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (13, 'Kilian', 'Rebillard', 'M', '2008-08-15', '1302 Randy Pass', '87195', 'NM', 'Albuquerque', 'krebillardc@newyorker.com', '505-597-0985', '2021-12-12', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (14, 'Micheline', 'Nevison', 'F', '1997-09-24', '051 Independence Circle', '33325', 'FL', 'Fort Lauderdale', 'mnevisond@comcast.net', '954-767-9266', '2020-03-14', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (15, 'Nat', 'Lassells', 'M', '2006-11-11', '030 Waubesa Court', '14646', 'NY', 'Rochester', 'nlassellse@360.cn', '585-340-4028', '2019-07-16', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (16, 'Remington', 'Waring', 'M', '2008-06-30', '985 Debra Lane', '92505', 'CA', 'Riverside', 'rwaringf@smugmug.com', '909-450-6180', '2021-11-16', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (17, 'Ximenez', 'Grzegorczyk', 'M', '1964-10-31', '3680 Everett Center', '85045', 'AZ', 'Phoenix', 'xgrzegorczykg@e-recht24.de', '602-568-4822', '2020-05-18', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (18, 'Patrica', 'Vennart', 'F', '1968-02-19', '44 Thackeray Trail', '32830', 'FL', 'Orlando', 'pvennarth@bbb.org', '407-819-4441', '2021-01-21', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (19, 'Emilio', 'Osmon', 'M', '1977-04-14', '3 Bellgrove Road', '80150', 'CO', 'Englewood', 'eosmoni@weebly.com', '303-264-8419', '2020-05-22', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (20, 'Camella', 'Colloby', 'F', '1993-06-01', '45849 Vidon Junction', '01114', 'MA', 'Springfield', 'ccollobyj@theglobeandmail.com', '413-298-4081', '2021-01-05', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (21, 'Kassey', 'Allardyce', 'F', '1962-11-27', '2624 Memorial Terrace', '98166', 'WA', 'Seattle', 'kallardycek@barnesandnoble.com', '360-974-7537', '2019-12-08', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (22, 'Piper', 'Elloit', 'F', '2000-02-24', '0 Gulseth Center', '97216', 'OR', 'Portland', 'pelloitl@dagondesign.com', '503-606-8041', '2021-09-18', 1);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (23, 'Noemi', 'Brauns', 'F', '1970-10-13', '28481 Schurz Point', '80638', 'CO', 'Greeley', 'nbraunsm@uol.com.br', '970-536-3394', '2020-12-08', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (24, 'Sibeal', 'Readwood', 'F', '1984-02-04', '650 Westerfield Center', '33034', 'FL', 'Homestead', 'sreadwoodn@nifty.com', '786-631-6838', '2019-09-15', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (25, 'Benjamen', 'Fullicks', 'M', '2007-12-13', '8 Bartillon Park', '20319', 'DC', 'Washington', 'bfullickso@washingtonpost.com', '202-132-0669', '2020-03-18', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (26, 'Delinda', 'Le Breton De La Vieuville', 'F', '1998-09-19', '0 South Hill', '50347', 'IA', 'Des Moines', 'dlebretondelavieuvillep@cloudflare.com', '515-155-9088', '2021-12-10', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (27, 'Sheri', 'Rannie', 'F', '1981-02-22', '9 Spaight Drive', '33330', 'FL', 'Fort Lauderdale', 'srannieq@about.com', '954-886-5526', '2021-04-28', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (28, 'Rafaelita', 'Matura', 'F', '2012-07-30', '39 Morrow Place', '49444', 'MI', 'Muskegon', 'rmaturar@tinypic.com', '231-932-5401', '2021-10-14', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (29, 'Corbie', 'Hundall', 'M', '2010-10-14', '46734 Ryan Circle', '20337', 'DC', 'Washington', 'chundalls@loc.gov', '202-551-8218', '2021-07-09', 2);
+insert into employees (ID, First_name, Last_name, Middle_initial, Date_of_birth, Street_address, Zip, State, City, Email, Phone, Hire_date, Manager_ID) values (30, 'Lawrence', 'Ailward', 'M', '2000-02-03', '48153 Corscot Lane', '17622', 'PA', 'Lancaster', 'lailwardt@storify.com', '717-903-1430', '2021-05-21', 1);
 
 -- passes
 insert into passes (ID, Nonmember_ID, Type, Purchase_Date) values (1, 20, 'Month', '2021-11-27');

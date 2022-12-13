@@ -2,13 +2,9 @@ from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
-
 nonmembers = Blueprint('nonmembers', __name__)
 
-
 # Get ALL nonmembers info from the database
-
-
 @nonmembers.route('/nonmembers/', methods=['GET'])
 def get_nonmembers():
 
@@ -35,8 +31,6 @@ def get_nonmembers():
     return the_response
 
 # Post whenever a nonmember purchases a pass
-
-
 @nonmembers.route('/nonmembers/pass_purchase', methods=['POST'])
 def post_passes():
     # check logger
@@ -65,10 +59,7 @@ def post_passes():
 
     return 'Success!'
 
-
 # create new nonmember when they submit a waiver
-
-
 @nonmembers.route('/nonmembers/submit_waiver', methods=['POST'])
 def submit_waiver():
     # check
@@ -110,16 +101,16 @@ def submit_waiver():
     db.get_db().commit()
 
     # create query
-    query2_nonmembers = f"""insert into nonmembers 
+    query2_nonmembers = f"""insert into nonmembers
                             (First_name,
-                            Middle_initial, 
-                            Last_name, 
-                            Date_of_birth, 
-                            Street_address, 
-                            Zip, 
-                            State, 
-                            City, 
-                            Email, 
+                            Middle_initial,
+                            Last_name,
+                            Date_of_birth,
+                            Street_address,
+                            Zip,
+                            State,
+                            City,
+                            Email,
                             Phone,
                             Waiver_ID)
      values (\"{fname}\", \"{mi}\", \"{lname}\", \"{dob}\", \"{street}\", \"{zip}\",

@@ -25,6 +25,7 @@ def get_members():
     the_response.mimetype = 'application/json'
     return the_response
 
+#Get the members formatted for the waivers table (just name and last check in)
 @members.route('/members/waivers_table', methods=["GET"])
 def get_members_waivers_table():
     query = "SELECT First_name, Last_name, ID, Last_check_in, Frozen FROM members"
@@ -71,6 +72,7 @@ def get_teams():
     the_response.mimetype = 'application/json'
     return the_response
 
+#Post the latest check in time for a member
 @members.route('/members/check_in', methods=["POST"])
 def check_in_member():
     cursor = db.get_db().cursor()
@@ -87,34 +89,7 @@ def check_in_member():
 
     return "Success"
 
-@members.route('/members/team_options', methods=['GET'])
-def get_team_options():
-
-    # create cursor
-    cursor = db.get_db().cursor()
-
-    # create query to get all nonmembers
-    query = """select Experience_level, ID
-                from teams;"""
-
-    # execute query
-    cursor.execute(query)
-
-    # return data as a json
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-
-    return the_response
-
 # Get one team's info from the database
-
-
 @members.route('/members/teams/at_level', methods=['GET'])
 def get_one_team_info():
 
@@ -143,6 +118,7 @@ def get_one_team_info():
 
     return the_response
 
+#Get the experience levels of every team
 @members.route('/members/teams/experience_levels', methods=["GET"])
 def get_experience_levels():
     query = "SELECT DISTINCT Experience_level FROM teams;"

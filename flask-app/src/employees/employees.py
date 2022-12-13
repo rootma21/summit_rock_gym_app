@@ -6,8 +6,6 @@ from src import db
 employees = Blueprint('employees', __name__)
 
 # Get all employees from the DB
-
-
 @employees.route('/employees', methods=['GET'])
 def get_employees():
     cursor = db.get_db().cursor()
@@ -23,6 +21,7 @@ def get_employees():
     return the_response
 
 
+# Get all teams from the DB
 @employees.route('employees/teams', methods=['GET'])
 def get_teams():
     cursor = db.get_db().cursor()
