@@ -27,6 +27,7 @@ CREATE TABLE members
     Waiver_ID INTEGER,
     Email VARCHAR(64) NOT NULL,
     Phone CHAR(25) NOT NULL,
+    Last_check_in DATE,
     PRIMARY KEY (ID)
 );
 
