@@ -1,6 +1,6 @@
 CREATE DATABASE gym;
 
-CREATE USER 'webapp'@'%' IDENTIFIED BY 'joshandrachel';
+-- CREATE USER 'webapp'@'%' IDENTIFIED BY 'joshandrachel';
 
 GRANT ALL PRIVILEGES ON gym.* TO 'webapp'@'%';
 

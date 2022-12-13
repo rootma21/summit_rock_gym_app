@@ -1,6 +1,6 @@
 # Summit Rock Gym App
 
-This database design project supports a simple app for a new indoor indoor rock climbing gym. It is meant to support three distinct personas: employees, members, and nonmembers of the gym. The app allows members to sign up and view teams, nonmembers to sign waivers and purchase passes, and employees to check in members. The front-end of the application runs on AppSmith, while the data is stored in MySQL, and the routes are supported in Flask. 
+This database design project supports a simple app for a new indoor indoor rock climbing gym. It is meant to support three distinct personas: employees, members, and nonmembers of the gym. The app allows members to sign up and view teams, nonmembers to sign waivers and purchase passes, and employees to check in members. The front-end of the application runs on AppSmith, while the data is stored in a MySQL database, and the routes are supported in Flask. 
 
 A live demo can be accessed at ___________________________.
 The App Smith page can be accessed at https://appsmith.cs3200.net/app/summit-rock-gym/home-page-638919a1ffea3148102ab8de
